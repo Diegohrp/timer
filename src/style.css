@@ -1,0 +1,153 @@
+:root {
+  --brand-color: #EF4444;
+  --dark-color: #18181B;
+  --mid-color: #D4D4D8;
+  --light-color: #F8FAFC;
+}
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 62.5%;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+header{
+  width: 100vw;
+}
+
+header nav ul{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: var(--brand-color);
+  list-style: none;
+
+}
+
+.main-button{
+  width: 30px;
+  height: 30px;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--brand-color);
+  border-radius: 20px;
+  background-color: var(--light-color);
+  border: none;
+}
+ul li button:hover{
+  transform: scale(1.2);
+  transition: 100ms ease-in;
+}
+main{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.content{
+  width: 80%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.content span{
+  font-size: 4rem;
+  font-weight: 500;
+  margin-bottom: 30px;
+  
+}
+
+.content .control-selects{
+  height: 50px;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+}
+.content .control-selects span{
+  font-size: 3rem;
+  margin: 0 5px;
+}
+.content .control-selects select{
+  width: 80px;
+  height: 30px;
+  font-size: 1.8rem;
+  font-family: 'Fira Sans', sans-serif;
+  text-align: center;
+  border: 2px solid var(--mid-color);
+  border-radius: 5px;
+}
+.content .control-selects select:focus{
+  outline-color: var(--brand-color);
+}
+.control-buttons{
+  margin-top: 20px;
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly
+}
+.control-buttons button{
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--brand-color);
+}
+
+.control-buttons button:nth-child(2),.control-buttons button:nth-child(3){
+  display: none;
+}
+
+.progress{
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress .inside{
+  margin: 0;
+  background-color: white;
+  width: 175px;
+  height: 175px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  z-index:1;
+}
+
+.progress .mask, .progress .mask .fill{
+  width:200px ;
+  height: 200px;
+  position: absolute;
+  border-radius: 50%;
+}
+.mask{
+  clip: rect(0px, 200px, 200px, 99px);
+  
+}
+.fill{
+  background-color: var(--brand-color);
+  border: none;
+  clip: rect(0px, 100px, 200px, 0px);
+}
+
+/* .fill, .full{
+  transform: rotate(179.5deg);
+} */
