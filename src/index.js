@@ -1,5 +1,10 @@
 const main = document.querySelector('main');
-let counterSpan = document.querySelector('#counter-span');
+const countdownSection = document.querySelector('#countdown');
+const stopwatchSection = document.querySelector('#stopwatch');
+const pomodoroSection = document.querySelector('#pomodoro');
+const counterSpan = document.querySelector('#counter-span');
+const countdownSpan = document.querySelector('#countdown-span');
+const pomodoroSpan = document.querySelector('#pomodoro-span');
 let startButton = document.querySelector('#start');
 let pauseButton = document.querySelector('#pause');
 let stopButton = document.querySelector('#stop');
@@ -14,6 +19,15 @@ let seconds = 0;
 let minutes = 0;
 
 //Stopwatch
+function counter() {
+  stop();
+  startButton = document.querySelector('#start');
+  pauseButton = document.querySelector('#pause');
+  stopButton = document.querySelector('#stop');
+  countdownSection.style.display = 'none';
+  stopwatchSection.style.display = 'flex';
+  pomodoroSection.style.display = 'none';
+}
 function startWatch() {
   start();
   timeInterval = setInterval(() => {
@@ -28,163 +42,15 @@ function startWatch() {
 
 //Countdown
 function countDown() {
-  main.innerHTML = `
-  <section class="content">
-    <div class="progress">
-      <div class="mask full">
-        <div id="fill1" class="fill"></div>
-      </div>
-      <div class="mask half">
-        <div id="fill2" class="fill"></div>
-      </div>
-      <span class="inside" id="counter-span">00:00</span>
-    </div>
-    <div class="control-selects">
-      <select id="minutes">
-        <option value="00">00</option>
-        <option value="01">01</option>
-        <option value="2">02</option>
-        <option value="3">03</option>
-        <option value="4">04</option>
-        <option value="5">05</option>
-        <option value="6">06</option>
-        <option value="7">07</option>
-        <option value="8">08</option>
-        <option value="9">09</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-        <option value="12">12</option>
-        <option value="13">13</option>
-        <option value="14">14</option>
-        <option value="15">15</option>
-        <option value="16">16</option>
-        <option value="17">17</option>
-        <option value="18">18</option>
-        <option value="19">19</option>
-        <option value="20">20</option>
-        <option value="21">21</option>
-        <option value="22">22</option>
-        <option value="23">23</option>
-        <option value="24">24</option>
-        <option value="25">25</option>
-        <option value="26">26</option>
-        <option value="27">27</option>
-        <option value="28">28</option>
-        <option value="29">29</option>
-        <option value="30">30</option>
-        <option value="31">31</option>
-        <option value="32">32</option>
-        <option value="33">33</option>
-        <option value="34">34</option>
-        <option value="35">35</option>
-        <option value="36">36</option>
-        <option value="37">37</option>
-        <option value="38">38</option>
-        <option value="39">39</option>
-        <option value="40">40</option>
-        <option value="41">41</option>
-        <option value="42">42</option>
-        <option value="43">43</option>
-        <option value="44">44</option>
-        <option value="45">45</option>
-        <option value="46">46</option>
-        <option value="47">47</option>
-        <option value="48">48</option>
-        <option value="49">49</option>
-        <option value="50">50</option>
-        <option value="51">51</option>
-        <option value="52">52</option>
-        <option value="53">53</option>
-        <option value="54">54</option>
-        <option value="55">55</option>
-        <option value="56">56</option>
-        <option value="57">57</option>
-        <option value="58">58</option>
-        <option value="59">59</option>
-      </select>
-      <span>:</span>
-      <select id="seconds">
-        <option value="00">00</option>
-        <option value="01">01</option>
-        <option value="2">02</option>
-        <option value="3">03</option>
-        <option value="4">04</option>
-        <option value="5">05</option>
-        <option value="6">06</option>
-        <option value="7">07</option>
-        <option value="8">08</option>
-        <option value="9">09</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-        <option value="12">12</option>
-        <option value="13">13</option>
-        <option value="14">14</option>
-        <option value="15">15</option>
-        <option value="16">16</option>
-        <option value="17">17</option>
-        <option value="18">18</option>
-        <option value="19">19</option>
-        <option value="20">20</option>
-        <option value="21">21</option>
-        <option value="22">22</option>
-        <option value="23">23</option>
-        <option value="24">24</option>
-        <option value="25">25</option>
-        <option value="26">26</option>
-        <option value="27">27</option>
-        <option value="28">28</option>
-        <option value="29">29</option>
-        <option value="30">30</option>
-        <option value="31">31</option>
-        <option value="32">32</option>
-        <option value="33">33</option>
-        <option value="34">34</option>
-        <option value="35">35</option>
-        <option value="36">36</option>
-        <option value="37">37</option>
-        <option value="38">38</option>
-        <option value="39">39</option>
-        <option value="40">40</option>
-        <option value="41">41</option>
-        <option value="42">42</option>
-        <option value="43">43</option>
-        <option value="44">44</option>
-        <option value="45">45</option>
-        <option value="46">46</option>
-        <option value="47">47</option>
-        <option value="48">48</option>
-        <option value="49">49</option>
-        <option value="50">50</option>
-        <option value="51">51</option>
-        <option value="52">52</option>
-        <option value="53">53</option>
-        <option value="54">54</option>
-        <option value="55">55</option>
-        <option value="56">56</option>
-        <option value="57">57</option>
-        <option value="58">58</option>
-        <option value="59">59</option>
-      </select>
-    </div>
-    <div class="control-buttons">
-      <button id="start" class="main-button" onclick="startCountdown()">
-        <i class="fa-solid fa-play"></i>
-      </button>
-      <button id="pause" class="main-button" onclick="pause()">
-        <i class="fa-solid fa-pause"></i>
-      </button>
-      <button id="stop" class="main-button" onclick='stop("countdown")'>
-        <i class="fa-solid fa-stop"></i>
-      </button>
-    </div>
-  </section>
-  `;
+  stop();
+  countdownSection.style.display = 'flex';
+  stopwatchSection.style.display = 'none';
+  pomodoroSection.style.display = 'none';
   timerMinutes = document.querySelector('#minutes');
   timerSeconds = document.querySelector('#seconds');
-  counterSpan = document.querySelector('#counter-span');
-  startButton = document.querySelector('#start');
-  pauseButton = document.querySelector('#pause');
-  stopButton = document.querySelector('#stop');
+  startButton = document.querySelector('#start2');
+  pauseButton = document.querySelector('#pause2');
+  stopButton = document.querySelector('#stop2');
 }
 function startCountdown() {
   start();
@@ -194,41 +60,54 @@ function startCountdown() {
     totalTime = minutes * 60 + seconds;
     emptyClock(minutes, seconds, totalTime);
   }
-  counterSpan.textContent = formatValue(minutes, seconds);
+  countdownSpan.textContent = formatValue(minutes, seconds);
 
   if (minutes === 0 && seconds === 0) {
     console.log("Time's up");
-    stop('countdown');
+    stop();
   } else {
-    timeInterval = setInterval(() => {
-      seconds--;
-      if (seconds === -1) {
-        seconds = 59;
-        minutes--;
-        if (minutes === -1) {
-          minutes = 0;
-        }
-      }
-      emptyClock(minutes, seconds, totalTime);
-      if (minutes === 0 && seconds === 0) {
-        stop('countdown');
-        console.log("Time's up");
-      }
-      counterSpan.textContent = formatValue(minutes, seconds);
-    }, 1000);
+    decrement(countdownSpan, 'countdown');
   }
 }
-function emptyClock(minutes, seconds, totalTime) {
+
+//Pomodoro
+function pomodoro() {
+  stop();
+  countdownSection.style.display = 'none';
+  stopwatchSection.style.display = 'none';
+  pomodoroSection.style.display = 'flex';
+  startButton = document.querySelector('#start3');
+  pauseButton = document.querySelector('#pause3');
+  stopButton = document.querySelector('#stop3');
+  minutes = 25;
+  seconds = 0;
+  totalTime = 25 * 60;
+}
+
+function startPomodoro() {
+  start();
+  emptyClock(minutes, seconds, totalTime, 'pomodoro');
+  decrement(pomodoroSpan, 'pomodoro');
+}
+
+function emptyClock(minutes, seconds, totalTime, opt) {
   const currentTime = minutes * 60 + seconds;
   const degrees = 179 * (currentTime / totalTime);
   let fill1 = document.querySelector('#fill1');
   let fill2 = document.querySelector('#fill2');
   let full = document.querySelector('.full');
+
+  if (opt === 'pomodoro') {
+    fill1 = document.querySelector('#fill3');
+    fill2 = document.querySelector('#fill4');
+    full = document.querySelector('.full2');
+  }
   fill1.style.transform = `rotate(${degrees}deg)`;
   fill2.style.transform = `rotate(${degrees}deg)`;
   full.style.transform = `rotate(${degrees}deg)`;
 }
 //General functions
+
 function start() {
   startButton.style.display = 'none';
   pauseButton.style.display = 'flex';
@@ -247,16 +126,54 @@ function stop(opt) {
   seconds = 0;
   minutes = 0;
   counterSpan.textContent = '00:00';
+  countdownSpan.textContent = '00:00';
+  pomodoroSpan.textContent = '25:00';
   startButton.style.display = 'flex';
   pauseButton.style.display = 'none';
   stopButton.style.display = 'none';
+
   if (opt === 'countdown') {
     emptyClock(0, 0, 1);
+    playAlarm();
+  }
+  if (opt === 'pomodoro') {
+    minutes = 25;
+    seconds = 0;
+    playAlarm();
+  } else if (opt === 'pom') {
+    minutes = 25;
+    seconds = 0;
   }
 }
-
+function playAlarm() {
+  const audio = document.querySelector('#audio');
+  audio.play();
+  setTimeout(() => {
+    audio.pause();
+    audio.currentTime = 0;
+  }, 3500);
+}
 function formatValue(minutes, seconds) {
   formatedSeconds = `0${seconds}`.slice(-2);
   formatedMinutes = `0${minutes}`.slice(-2);
   return `${formatedMinutes}:${formatedSeconds}`;
+}
+
+function decrement(span, opt) {
+  timeInterval = setInterval(() => {
+    seconds--;
+    if (seconds === -1) {
+      seconds = 59;
+      minutes--;
+      if (minutes === -1) {
+        minutes = 0;
+      }
+    }
+    emptyClock(minutes, seconds, totalTime, opt);
+    if (minutes === 0 && seconds === 0) {
+      stop(opt);
+      console.log("Time's up");
+    }
+    span.textContent = formatValue(minutes, seconds);
+  }, 1000);
 }

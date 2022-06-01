@@ -22,17 +22,17 @@
       <nav>
         <ul>
           <li>
-            <button class="main-button">
+            <button class="main-button" onclick="counter();">
               <i class="fa-solid fa-stopwatch"></i>
             </button>
           </li>
           <li>
-            <button class="main-button" onclick="countDown()">
+            <button class="main-button" onclick="countDown();">
               <i class="fa-solid fa-hourglass"></i>
             </button>
           </li>
           <li>
-            <button class="main-button">
+            <button class="main-button" onclick="pomodoro();">
               <i class="fa-solid fa-bell"></i>
             </button>
           </li>
@@ -40,7 +40,7 @@
       </nav>
     </header>
     <main>
-      <section class="content">
+      <section class="content" id="stopwatch">
         <span id="counter-span">00:00</span>
         <div class="control-buttons">
           <button id="start" class="main-button" onclick="startWatch()">
@@ -54,7 +54,8 @@
           </button>
         </div>
       </section>
-      <!-- <section class="content">
+      <section class="content" id="countdown">
+        <audio src="src/assets/ring.mp3" id="audio"></audio>
         <div class="progress">
           <div class="mask full">
             <div id="fill1" class="fill"></div>
@@ -192,18 +193,56 @@
           </select>
         </div>
         <div class="control-buttons">
-          <button id="start" class="main-button" onclick="startCountdown()">
+          <button
+            id="start2"
+            class="start main-button"
+            onclick="startCountdown()"
+          >
             <i class="fa-solid fa-play"></i>
           </button>
-          <button id="pause" class="main-button" onclick="pause()">
+          <button id="pause2" class="main-button" onclick="pause()">
             <i class="fa-solid fa-pause"></i>
           </button>
-          <button id="stop" class="main-button" onclick="stop()">
+          <button id="stop2" class="main-button" onclick="stop()">
             <i class="fa-solid fa-stop"></i>
           </button>
         </div>
-      </section> -->
+      </section>
+
+      <section class="content" id="pomodoro">
+        <audio src="src/assets/ring.mp3" id="audio"></audio>
+        <div class="progress">
+          <div class="mask full2">
+            <div id="fill3" class="fill"></div>
+          </div>
+          <div class="mask half">
+            <div id="fill4" class="fill"></div>
+          </div>
+          <span class="inside" id="pomodoro-span">25:00</span>
+        </div>
+
+        <div class="control-buttons">
+          <button
+            id="start3"
+            class="start main-button"
+            onclick="startPomodoro()"
+          >
+            <i class="fa-solid fa-play"></i>
+          </button>
+          <button id="pause3" class="main-button" onclick="pause()">
+            <i class="fa-solid fa-pause"></i>
+          </button>
+          <button id="stop3" class="main-button" onclick="stop('pom')">
+            <i class="fa-solid fa-stop"></i>
+          </button>
+        </div>
+      </section>
     </main>
+    <footer>
+      <span
+        >Created by <a href="https://github.com/Diegohrp">@Diegohrp</a></span
+      >
+    </footer>
     <script src="/src/index.js"></script>
   </body>
 </html>
